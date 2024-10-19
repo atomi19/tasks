@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/variables.css">
+    <link rel="stylesheet" href="src/css/mediaQueries.css">
+</head>
+<body>
+    <header>
+        <h1 id="logo">Tasks</h1>
+        <button id="themeSwitch">
+            <img src="src/img/dark_mode.svg" alt="dark_theme_icon" id="darkTheme">
+            <img src="src/img/light_mode.svg" alt="light_theme_icon" id="lightTheme">
+        </button>
+    </header>
+
+    <main>
+        
+        <div class="task-container">
+            <p id="yourTasksLbl">Your Tasks</p>
+
+            <div class="new-task-container">
+                <input type="text" id="taskTitle" placeholder="Task Description">
+            </div>
+
+            <div id="task-main">
+
+                <!-- <div class="note-item" id="123">
+                    <p>Note Title</p>
+                    <button class="delete-btn" onclick="deleteNote(event)">
+                        <img class="deleteIcon" src="src/img/delete.svg" alt="delete_icon">
+                    </button>
+                </div> -->
+
+            </div>
+
+        </div>
+        
+    </main>
+
+    <script src="src/js/script.js" defer></script>
+    <script src="src/js/themeSwitch.js" defer></script>
+</body>
+</html>

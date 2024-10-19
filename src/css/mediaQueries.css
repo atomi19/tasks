@@ -1,0 +1,11 @@
+@media (max-width: 820px) {
+    .task-container {
+        margin-top: 1vh;
+        padding: 5px 10px 5px 10px;
+        width: 98%;
+    }
+
+    header {
+        padding: 5px 10px 5px 10px;
+    }
+}
