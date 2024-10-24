@@ -77,10 +77,26 @@ function createTaskElement(task) {
     taskItem.id = task.id;
 
     taskItem.innerHTML = `
+        <button class="done-btn" onclick="makeTaskDone(event)">
+            <img class="undone-icon" src="src/img/radio_button_unchecked.svg" alt="unDone">
+            <img class="done-icon" src="src/img/check_circle.svg" alt="done">
+        </button>
         <p>${task.content}</p>
         <button class="delete-btn" onclick="deleteTask(event)">
             <img src="src/img/delete.svg" alt="delete_icon">
         </button>`;
+
+    const doneIcon = taskItem.querySelector(".done-icon");
+    const undoneIcon = taskItem.querySelector(".undone-icon");
+
+    if(task.isDone) {
+        doneIcon.style.display = "flex";
+        undoneIcon.style.display = "none";
+        taskItem.classList.add("done");
+    } else {
+        undoneIcon.style.display = "flex"
+        doneIcon.style.display = "none";
+    }
 
     return taskItem;
 }
@@ -94,4 +110,24 @@ function getTasks() {
 // save list of tasks to local storage
 function saveTasks(tasks) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function makeTaskDone(event) {
+    const taskItem = event.target.closest(".task-item");
+    const taskId = parseInt(taskItem.id, 10);
+
+    let tasks = getTasks();
+    const task = tasks.find(t => t.id === taskId);
+
+    task.isDone = !task.isDone;
+    saveTasks(tasks);
+
+    taskItem.querySelector(".done-icon").style.display = task.isDone ? "flex" : "none";
+    taskItem.querySelector(".undone-icon").style.display = task.isDone ? "none" : "flex";
+
+    if(task.isDone) {
+        taskItem.classList.add("done");
+    } else {
+        taskItem.classList.remove("done");
+    }
 }

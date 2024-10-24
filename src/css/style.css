@@ -96,3 +96,18 @@ main {
 .delete-btn:hover {
     background-color: var(--hover-color);
 }
+
+.done-btn {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+}
+
+.task-item.done p {
+    text-decoration: line-through;
+    color: var(--undone-color);
+}
